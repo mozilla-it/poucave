@@ -23,7 +23,9 @@ PROJ_ENV=mozilla-api-${ENV}
 ENV_ZONE=mozilla-api-${ENV}-zone
 NAMESPACE=poucave-microservice
 SVC_NAME=poucave-microservice
-SUBDOMAIN=poucave
+SUBDOMAIN=poucave-microservice
+REPO_NAME=poucave
+CONFIG_FILE=config.toml
 
 FULL_DOMAIN=${SUBDOMAIN}.${DOMAIN}
 
@@ -56,7 +58,7 @@ kubectl apply -f k8s/cert-${PROJ_ENV}.yaml
 
 # K8 DEPLOYMENT
 cp k8s/deploy.yaml k8s/deploy-${PROJ_ENV}.yaml
-sed -i -e "s|@SECRET_NAME@|$SECRET_NAME|g" -e "s|@SHORT_SHA@|$SHORT_SHA|g" -e "s|@NAMESPACE@|$NAMESPACE|g" -e "s|@SVC_NAME@|$SVC_NAME|g" -e "s|@PROJECT@|${PROJ_ENV}|g"  k8s/deploy-${PROJ_ENV}.yaml
+sed -i -e "s|@SHORT_SHA@|$SHORT_SHA|g" -e "s|@REPO_NAME@|$REPO_NAME|g" -e "s|@NAMESPACE@|$NAMESPACE|g" -e "s|@SVC_NAME@|$SVC_NAME|g" -e "s|@PROJECT@|${PROJ_ENV}|g" -e "s|@CONFIG_FILE@|${CONFIG_FILE}|g"  k8s/deploy-${PROJ_ENV}.yaml
 kubectl apply -f k8s/deploy-${PROJ_ENV}.yaml
 
 # LB + IP LOGIC
