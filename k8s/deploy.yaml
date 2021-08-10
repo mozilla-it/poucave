@@ -16,12 +16,14 @@ spec:
         app: @SVC_NAME@
     spec:
       containers:
-      - image: gcr.io/dp2-admin/github.com/mozilla-it/@SVC_NAME@:@SHORT_SHA@
+      - image: gcr.io/dp2-admin/github.com/mozilla-it/@REPO_NAME@:@SHORT_SHA@
         imagePullPolicy: Always
         name: @SVC_NAME@
         env:
           - name: PROJECT
             value: "@PROJECT@"
+          - name: CONFIG_FILE
+            value: /app/config.toml
         ports:
         - containerPort: 80
           protocol: TCP
