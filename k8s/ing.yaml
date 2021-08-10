@@ -13,4 +13,4 @@ spec:
       - path: /*
         backend:
           serviceName: @SVC_NAME@
-          servicePort: 80
+          servicePort: 8080
