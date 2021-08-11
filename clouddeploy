@@ -21,10 +21,10 @@ fi
 # VARS
 PROJ_ENV=mozilla-api-${ENV}
 ENV_ZONE=mozilla-api-${ENV}-zone
-NAMESPACE=poucave-microservice
-SVC_NAME=poucave-microservice
-SUBDOMAIN=poucave-microservice
-REPO_NAME=poucave
+NAMESPACE=telescope-demo
+SVC_NAME=telescope-demo
+SUBDOMAIN=telescope-demo
+REPO_NAME=telescope-demo
 CONFIG_FILE=config.toml
 
 FULL_DOMAIN=${SUBDOMAIN}.${DOMAIN}
