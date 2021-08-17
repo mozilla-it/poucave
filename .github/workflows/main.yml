@@ -20,9 +20,11 @@ jobs:
         run: echo Attempting fork rebase!
       - name: Run a multi-line script
         run: |
+          git pull --unshallow
+          
           git remote add poucave https://github.com/mozilla-services/poucave.git
           git fetch poucave
           
-          git checkout -b feature/fork-sync
+          git checkout main
           git rebase poucave/main
-          git push origin feature/fork-sync
+          git push origin main
