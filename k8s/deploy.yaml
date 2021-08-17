@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: @SVC_NAME@
+  name: @SVC_NAME@
+  namespace: @NAMESPACE@
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: @SVC_NAME@
+  template:
+    metadata:
+      labels:
+        app: @SVC_NAME@
+    spec:
+      containers:
+      - image: gcr.io/dp2-admin/github.com/mozilla-it/@REPO_NAME@:@SHORT_SHA@
+        imagePullPolicy: Always
+        name: @SVC_NAME@
+        env:
+          - name: PROJECT
+            value: "@PROJECT@"
+          - name: CONFIG_FILE
+            value: /app/config.toml
+        ports:
+        - containerPort: 8080
+          protocol: TCP
