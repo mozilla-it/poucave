@@ -41,6 +41,10 @@ cp k8s/ns.yaml k8s/ns-${PROJ_ENV}.yaml
 sed -i -e "s|@NAMESPACE@|$NAMESPACE|g" k8s/ns-${PROJ_ENV}.yaml
 kubectl apply -f k8s/ns-${PROJ_ENV}.yaml
 
+# K8 CONFIGMAP
+sed -i -e "s|@PROJECT@|${PROJ_ENV}|g"setup.env
+kubectl create configmap telescope-configmap --from-env-file=setup.env
+
 # K8 SERVICE
 cp k8s/svc.yaml k8s/svc-${PROJ_ENV}.yaml
 sed -i -e "s|@SVC_NAME@|$SVC_NAME|g" -e "s|@NAMESPACE@|$NAMESPACE|g" k8s/svc-${PROJ_ENV}.yaml

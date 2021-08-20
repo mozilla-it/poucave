@@ -19,11 +19,9 @@ spec:
       - image: gcr.io/dp2-admin/github.com/mozilla-it/@REPO_NAME@:@SHORT_SHA@
         imagePullPolicy: Always
         name: @SVC_NAME@
-        env:
-          - name: PROJECT
-            value: "@PROJECT@"
-          - name: CONFIG_FILE
-            value: /app/config.toml
+        envFrom:
+        - configMapRef:
+          name: telescope-configmap
         ports:
         - containerPort: 8080
           protocol: TCP
