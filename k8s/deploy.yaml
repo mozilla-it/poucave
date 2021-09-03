@@ -22,7 +22,7 @@ spec:
         envFrom:
         - configMapRef:
             name: @CONFIGMAP_NAME@
-        - secretMapRef:
+        - secretRef:
             name: @SECRET_NAME@
         ports:
         - containerPort: 8080
