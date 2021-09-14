@@ -98,3 +98,9 @@ params.client_id = "${TASKCLUSTER_CLIENT_ID}"
 params.access_token = "${TASKCLUSTER_ACCESS_TOKEN}"
 params.certificate = "${TASKCLUSTER_CERTIFICATE}"
 tags = ["taskcluster"]
+
+[checks.certficate.expiry]
+description = "Certificate expiry warning"
+module = "checks.core.certificate_expiration"
+params.url = "${TASKCLUSTER_ROOT_URL}"
+tags = ["taskcluster"]
