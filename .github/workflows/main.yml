@@ -34,9 +34,9 @@ jobs:
           git fetch
           git pull --unshallow
           
-          git remote add poucave https://github.com/mozilla-services/poucave.git
-          git fetch poucave
-          git pull --rebase poucave main
+          git remote add upstream https://github.com/mozilla-services/telescope.git
+          git fetch upstream
+          git pull --rebase upstream main
 
           git push --force origin main
           
