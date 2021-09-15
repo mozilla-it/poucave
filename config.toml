@@ -96,5 +96,4 @@ module = "checks.taskcluster.write_secrets"
 params.root_url = "${TASKCLUSTER_ROOT_URL}"
 params.client_id = "${TASKCLUSTER_CLIENT_ID}"
 params.access_token = "${TASKCLUSTER_ACCESS_TOKEN}"
-params.certificate = "${TASKCLUSTER_CERTIFICATE}"
 tags = ["taskcluster"]
