@@ -69,6 +69,12 @@ module = "checks.core.heartbeat"
 params.url = "https://community-tc.services.mozilla.com/api/worker-manager/v1/ping"
 tags = ["taskcluster", "taskcluster-critical"]
 
+[checks.worker-manager.worker-certificate-expiration]
+description = "Worker certificate expiration"
+module = "checks.core.certificate_expiration"
+params.url = "https://raw.githubusercontent.com/mozilla/community-tc-config/main/imagesets/docker-worker/worker-cert.pem"
+tags = ["taskcluster", "taskcluster-critical"]
+
 [checks.github.ping]
 description = "Github service ping"
 module = "checks.core.heartbeat"
